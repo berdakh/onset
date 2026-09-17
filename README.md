@@ -1,7 +1,6 @@
 # Onset — a presurgical evaluation workbench for epilepsy surgery
 
-**Prototype on synthetic iEEG (MNE-Python).** Decision support, not diagnosis: every output cites the
-prediction and the evidence window it came from; models' disagreements are reported, not averaged away;
+**Prototype on synthetic iEEG (MNE-Python).** Decision support, not diagnosis: reports show model ranks and the signal windows used as evidence; models' disagreements are reported, not averaged away;
 there is no recommendation anywhere in the product. The clinician decides.
 
 - **Python app (not yet hosted):** deploy this repo on [Streamlit Community Cloud](https://share.streamlit.io) — entry point `app/Home.py` (instructions below).

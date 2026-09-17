@@ -3,9 +3,10 @@
 Validated locally with Python 3.13, Streamlit 1.45.1, MNE 1.13.2, NumPy 2.1.3 and scikit-learn 1.6.1.
 
 - Ruff: passed.
-- Pytest: 12 tests passed, including evidence ranking/duration, report completeness, and assistant refusal/scope regressions.
+- Pytest: 13 tests passed, including evidence ranking/duration, report completeness, and assistant refusal/scope regressions.
 - Streamlit AppTest: Home and all seven pages passed with no app exceptions.
 - Patient selection and ground-truth toggle passed; assistant cross-patient refusal passed.
+- Static website: both entry points returned HTTP 200; mockup JavaScript parsed and its HTML-escaping and patient-scope checks passed in QuickJS.
 - Default five-patient cohort: reference precision@3 = 0.3333; tree precision@3 = 0.8.
 - First-hit ranks: reference [3, 3, 1, 2, 12]; tree [1, 1, 1, 1, 1].
 - Cohort computation took approximately 32 seconds on the validation machine.
