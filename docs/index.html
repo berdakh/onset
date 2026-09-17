@@ -1,0 +1,38 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Onset — presurgical evaluation workbench</title>
+<style>body{margin:0;background:#F7F6F2;color:#2C2C2A;font:16px/1.6 "DejaVu Sans",system-ui,Arial,sans-serif}header{background:#fff;border-bottom:1px solid #D3D1C7;padding:14px 32px;display:flex;gap:24px;align-items:center}header b{font-size:22px}header a{color:#5F5E5A;text-decoration:none;margin-left:16px}main{max-width:980px;margin:0 auto;padding:24px 32px 60px}h1{font-size:34px;margin:24px 0 6px}h2{font-size:20px;margin:36px 0 8px}.lead{font-size:18px;color:#5F5E5A}.btn{display:inline-block;background:#534AB7;color:#fff;padding:10px 18px;border-radius:8px;text-decoration:none;margin:12px 12px 0 0}.btn.alt{background:#fff;color:#534AB7;border:1px solid #534AB7}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}.card{background:#fff;border:1px solid #D3D1C7;border-radius:10px;padding:16px}.card h3{margin:0 0 6px;font-size:16px}.rule{background:#E1F5EE;color:#085041;border-radius:8px;padding:12px 16px;margin-top:20px}table{border-collapse:collapse;width:100%;font-size:14px}th,td{text-align:left;padding:8px 6px;border-bottom:1px solid #EDECE6}th{color:#5F5E5A;font-weight:400}footer{color:#888780;font-size:12px;text-align:center;padding:30px}img{max-width:100%;border:1px solid #D3D1C7;border-radius:8px}header{flex-wrap:wrap} .grid{grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr))} @media(max-width:600px){header{padding:16px;gap:12px}header a{margin-left:0}main{padding:20px 16px}h1{font-size:28px}} </style></head><body>
+<header><b>Onset</b><span style="color:#5F5E5A">presurgical evaluation workbench for epilepsy surgery</span><span style="flex:1"></span><a href="mockup.html">Interactive mockup</a><a href="#app">App</a><a href="#research">Research</a><a href="https://github.com/berdakh/onset">GitHub</a></header>
+<main>
+<h1>A research demo for comparing localization methods</h1>
+<p class="lead">This prototype compares two baseline models on synthetic intracranial EEG, displays signal windows, and produces a structured report with a rule-based assistant. The interactive mockup illustrates a proposed clinical workflow; production infrastructure is not implemented.</p>
+<a class="btn" id="app" href="https://github.com/berdakh/onset#run-locally">Run the prototype app</a><a class="btn alt" href="mockup.html">Explore the interactive mockup</a>
+<div class="rule"><b>Decision support, not diagnosis.</b> Every output is evidence with its basis visible. No recommendation exists anywhere in the product. The clinician decides.</div>
+
+<h2>The problem</h2>
+<p>Surgery is the only curative option for many people with drug-resistant epilepsy, and it works only if the team localizes the seizure onset zone. Days of SEEG recording, hundreds of contacts, interpreted by eye, with variability between experts. New AI localization models appear every month; almost none reach a clinical workflow, because the evidence around them — provenance, versions, citations, audit — does not exist.</p>
+
+<h2>Planned full-system design</h2>
+<div class="grid">
+<div class="card"><h3>Patient view</h3>Two models side by side per contact; disagreement is flagged as a finding; each rank opens the ten-second evidence window the model scored.</div>
+<div class="card"><h3>Onset Report</h3>Structured, versioned, immutable. Findings cite predictions and windows; disagreements are stated, not resolved; data quality and limitations are sections; a recommendation is not.</div>
+<div class="card"><h3>Onset Assistant</h3>Four read-only tools, scoped to the patient on screen. Cites, or refuses. "Which contacts should we resect?" gets the evidence and a refusal.</div>
+<div class="card"><h3>Runs and registry</h3>Models load by name and version; predictions are immutable rows under a run; mismatched feature versions are refused before scoring.</div>
+<div class="card"><h3>Trust layers, all in code</h3>Database (immutable rows, row-level security) → contracts → schema validation → output filter and judge → the clinician.</div>
+<div class="card"><h3>On-prem by design</h3>Open-weight models on a workstation inside the clinic. No patient data leaves the building. De-identification on entry; every access audited.</div>
+</div>
+
+<h2>What the prototype shows today</h2>
+<p>The app runs on a <b>synthetic five-patient cohort generated with MNE-Python</b>: 48 SEEG contacts each, labeled onset zones, interictal spikes, high-frequency bursts, one seizure, two bad contacts. Two baseline rankers are evaluated leave-one-patient-out; reports and answers use the computed in-memory evidence. The full system is a proposed design.</p>
+<table><tr><th>Component</th><th>Planned full system</th><th>Prototype</th></tr>
+<tr><td>Data</td><td>BIDS ingest, de-identification, Postgres</td><td>synthetic MNE cohort</td></tr>
+<tr><td>Models</td><td>registry, contracts, thesis models</td><td>two baselines behind the same interface</td></tr>
+<tr><td>Evaluation</td><td>LOPO, precision@k, calibration, model cards</td><td>LOPO, precision@3, first-hit rank</td></tr>
+<tr><td>Report</td><td>local LLM, validated citations, versioned</td><td>same schema, deterministic template</td></tr>
+<tr><td>Assistant</td><td>local LLM over read-only tools</td><td>rule-based over the same evidence</td></tr>
+<tr><td>Security / operations</td><td>roles, audit, RLS, traces, nightly chain</td><td>not included</td></tr></table>
+
+<h2 id="research">Research programme</h2>
+<p>Brain–Machine Interfaces Lab, School of Computing and Artificial Intelligence, Nazarbayev University (PI: Berdakh Abibullaev). Two MSc theses build against Onset's contracts: a localization model that returns scores with evidence windows, and an LLM-driven orchestrator that composes pipeline steps without bypassing a contract. Principles the students inherit: no patient on both sides of a split; every score carries the window it looked at; disagreement is reported, not averaged; nothing recommends treatment; public data first, partner data only through de-identification.</p>
+<p>Data: OpenNeuro iEEG (public, BIDS) for development; 15+ patients from a partner medical center to follow, de-identified.</p>
+</main>
+<footer>Onset · Brain–Machine Interfaces Lab · Nazarbayev University · MIT license · This site describes a research prototype on synthetic data and is not a medical device.</footer>
+</body></html>
