@@ -6,6 +6,8 @@ there is no recommendation anywhere in the product. The clinician decides.
 - **Live Python app:** [Open Onset](https://berdakh-onset.streamlit.app/) — hosted on Streamlit Community Cloud from `app/Home.py` with Python 3.12.
 - **Project site + interactive mockup:** GitHub Pages serves `docs/` at `https://berdakh.github.io/onset/`.
 
+- **Student tutorial:** [From iEEG to evidence](https://berdakh.github.io/onset/tutorial.html) — illustrated implementation walkthrough, clinical context, worked examples, and an optional [Qwen agent lab](https://berdakh.github.io/onset/tutorial.html#qwen).
+
 ## What is in the app
 | Page | What you see |
 |---|---|
