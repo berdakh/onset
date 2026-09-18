@@ -3,7 +3,7 @@
 **Prototype on synthetic iEEG (MNE-Python).** Decision support, not diagnosis: reports show model ranks and the signal windows used as evidence; models' disagreements are reported, not averaged away;
 there is no recommendation anywhere in the product. The clinician decides.
 
-- **Python app (not yet hosted):** deploy this repo on [Streamlit Community Cloud](https://share.streamlit.io) — entry point `app/Home.py` (instructions below).
+- **Live Python app:** [Open Onset](https://berdakh-onset.streamlit.app/) — hosted on Streamlit Community Cloud from `app/Home.py` with Python 3.12.
 - **Project site + interactive mockup:** GitHub Pages serves `docs/` at `https://berdakh.github.io/onset/`.
 
 ## What is in the app
@@ -26,7 +26,7 @@ streamlit run app/Home.py
 ```
 First start builds and evaluates five synthetic patients and caches them. Startup time and memory use depend on the host.
 
-The GitHub Pages website serves static HTML only. Its mockup uses fictional records and does not run the Python pipeline. The live Streamlit app needs a separate deployment from this same repository.
+The GitHub Pages website serves static HTML only. Its mockup uses fictional records and does not run the Python pipeline. The live Streamlit app is deployed separately from this same repository.
 
 ## Deploy the app free (Streamlit Community Cloud)
 1. Push this repo to GitHub (public).
