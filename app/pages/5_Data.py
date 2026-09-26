@@ -12,6 +12,10 @@ st.set_page_config(page_title="Onset · Data", layout="wide")
 banner()
 pts, tables, runs, reports, metrics = load()
 st.title("The synthetic cohort (MNE)")
+st.caption(
+    "Background on why the cohort is built this way, and what a ranking can and "
+    "cannot mean: [*Look at the signal*](https://berdakh.github.io/onset/#signal) on the project site, "
+    "and the [implementation walkthrough](https://berdakh.github.io/onset/tutorial.html).")
 st.markdown("""
 Each virtual patient is an `mne.io.RawArray` with 48 SEEG channels (6 depth electrodes × 8 contacts), 512 Hz, 10 minutes:
 

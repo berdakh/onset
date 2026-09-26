@@ -48,6 +48,35 @@ docs/         project site and interactive mockup (GitHub Pages)
 tests/        pytest
 ```
 
+## Four things that must stay in step with `berdakh/onset-hfo`
+
+There are two repositories under one project name: this one, the teaching
+prototype on a synthetic cohort, and
+[Onset-HFO](https://github.com/berdakh/onset-hfo), the instrument on public
+recordings of real patients. `onset-hfo/docs/DUPLICATION.md` measures what is
+actually shared and says what must **not** be merged — there is no shared
+Python and deliberately never will be. Four things must match.
+**Anything not on this list is allowed to differ.**
+
+1. The **standing disclaimer**'s structure and its no-recommendation sentence.
+   The copy of record is `onset-hfo/app/panels.py`'s `DISCLAIMER_LEAD` /
+   `DATA_SENTENCE` / `DISCLAIMER_TAIL`; `app/common.py` here carries the copy.
+   Only `DATA_SENTENCE` differs, because only one of the two runs on real
+   recordings — and this one's is the more important to get right.
+2. The **shared page names**: `Home`, `Report`, `Assistant`, `Data`,
+   `Architecture`, `Research`.
+3. The **sidebar link row** — same destinations, same names, same order:
+   Clinical guide · Implementation walkthrough · Results & docs · Onset
+   project. The two entries after those differ by design.
+4. `.streamlit/config.toml`, which carries a `TWIN FILE` header saying so.
+
+No mechanism can enforce this across two repositories, and a submodule or a
+published package would cost more than four items are worth. The honest
+control is that the list is short, written down in both places, and each item
+carries a comment naming its twin. **If you change one of the four, change it
+in the other repository in the same sitting.** `tests/test_app.py` enforces
+the half that lives here.
+
 ## Principles
 1. No patient on both sides of a split.  2. Every score carries the window it looked at.
 3. Disagreement is reported, not resolved.  4. No treatment recommendation exists in the schema.

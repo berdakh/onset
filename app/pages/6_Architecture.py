@@ -10,6 +10,9 @@ from app.common import banner
 st.set_page_config(page_title="Onset · Architecture", layout="wide")
 banner()
 st.title("Architecture: the full system and what this prototype includes")
+st.caption(
+    "The five implemented steps, with the file each one lives in: [*Inside the workbench*](https://berdakh.github.io/onset/#system) on the project site. The table below is the part that is not there — what a production system would add."
+)
 st.graphviz_chart("""
 digraph G { rankdir=LR; node [shape=box, style="rounded,filled", fillcolor="#F7F6F2", fontname="Helvetica", fontsize=11];
   ingest [label="Ingest\nBIDS iEEG (MNE)\nde-identification"]; db [label="Postgres + pgvector\nobject store"];
