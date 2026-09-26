@@ -15,9 +15,16 @@ def load():
 
 def banner():
     st.sidebar.markdown(
-        "[🩺 Clinical guide](https://berdakh.github.io/onset/clinical-guide.html) · "
-        "[🧠 On real recordings](https://onsetnu.streamlit.app/) · "
-        "[📖 Implementation walkthrough](https://berdakh.github.io/onset/tutorial.html)"
+        # The first four entries are the shared link row: same names, same
+        # order, in this app and in Onset-HFO's. See that repository's
+        # docs/DUPLICATION.md. The last two necessarily differ -- they point
+        # at the other instrument and at this repository's code.
+        "[Clinical guide](https://berdakh.github.io/onset/clinical-guide.html) · "
+        "[Implementation walkthrough](https://berdakh.github.io/onset/tutorial.html) · "
+        "[Results & docs](https://berdakh.github.io/onset-hfo/) · "
+        "[Onset project](https://berdakh.github.io/onset/) · "
+        "[Onset-HFO app](https://onsetnu.streamlit.app/) · "
+        "[Code](https://github.com/berdakh/onset)"
     )
     st.markdown(
         "<div style='background:#E1F5EE;color:#085041;padding:8px 14px;border-radius:8px;font-size:13px'>"
