@@ -1,8 +1,11 @@
 # Project website
 
 GitHub Pages serves this directory. `index.html` introduces the prototype;
-`mockup.html` illustrates a proposed interface; `tutorial.html` is the self-contained
-student guide. The actual Python app runs separately on Streamlit.
+`mockup.html` illustrates a proposed interface; `clinical-guide.html` explains the
+presurgical workup for readers coming from outside the clinic; `tutorial.html` is the
+self-contained implementation walkthrough. The actual Python app runs separately on
+Streamlit, and the real-data sibling project is at
+<https://berdakh.github.io/onset-hfo/>.
 
 `ieeg-example.svg` is generated from synthetic data with `generate_figure.py`.
 Run it from an environment with the project dependencies installed.
