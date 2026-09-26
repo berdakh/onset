@@ -14,7 +14,11 @@ def load():
 
 
 def banner():
-    st.sidebar.markdown("[📖 Student guide & Qwen code lab](https://berdakh.github.io/onset/tutorial.html)")
+    st.sidebar.markdown(
+        "[🩺 Clinical guide](https://berdakh.github.io/onset/clinical-guide.html) · "
+        "[🧠 On real recordings](https://onsetnu.streamlit.app/) · "
+        "[📖 Implementation walkthrough](https://berdakh.github.io/onset/tutorial.html)"
+    )
     st.markdown(
         "<div style='background:#E1F5EE;color:#085041;padding:8px 14px;border-radius:8px;font-size:13px'>"
         "Decision support prototype on <b>synthetic data</b>. Every number cites a prediction and an evidence window. "
