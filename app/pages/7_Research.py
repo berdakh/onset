@@ -10,14 +10,12 @@ from app.common import banner
 st.set_page_config(page_title="Onset · Research", layout="wide")
 banner()
 st.title("Research programme")
+st.caption(
+    "The lab, the two repositories and what is implemented in each are on the "
+    "project site: [*An open research foundation*](https://berdakh.github.io/onset/#research). This page "
+    "carries the part that is not there — the student projects and the rules "
+    "they inherit.")
 st.markdown("""
-**Lab.** Brain–Machine Interfaces Laboratory, School of Computing and Artificial Intelligence, Nazarbayev University.
-PI: Berdakh Abibullaev. Focus: deep learning for EEG/iEEG signal processing, BCI, clinical translation for epilepsy.
-
-**The gap Onset addresses.** The proposed research explores how localization models can be compared within a reproducible workflow.
-Onset demonstrates that workflow on synthetic data: baseline models in, structured reports and evidence-scoped answers out.
-Clinical integration and external validation remain future work.
-
 **Two MSc theses (2026–27)**
 - *ML for seizure-onset-zone localization from iEEG* — implements `ModelContract`: scores per contact plus evidence windows;
   evaluated leave-one-patient-out with the platform's harness; a model card with intended and non-intended use.
